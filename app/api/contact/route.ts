@@ -1,7 +1,28 @@
 import { NextResponse } from "next/server";
+import { rateLimit, getClientIdentifier } from "@/lib/rate-limit";
 
 export async function POST(request: Request) {
   try {
+    // Rate limiting: 3 submissions per hour per IP
+    const identifier = getClientIdentifier(request);
+    const rateLimitResult = rateLimit(identifier, 3, 60 * 60 * 1000);
+
+    if (!rateLimitResult.success) {
+      const resetDate = new Date(rateLimitResult.resetTime);
+      return NextResponse.json(
+        {
+          error: `Too many requests. Please try again after ${resetDate.toLocaleTimeString()}.`,
+          resetTime: rateLimitResult.resetTime,
+        },
+        { 
+          status: 429,
+          headers: {
+            'Retry-After': String(Math.ceil((rateLimitResult.resetTime - Date.now()) / 1000)),
+          }
+        }
+      );
+    }
+
     const body = await request.json();
     const { name, email, inquiryType, message } = body;
 
@@ -13,12 +34,32 @@ export async function POST(request: Request) {
       );
     }
 
+    // Length validation to prevent abuse
+    if (name.length > 100 || email.length > 100 || message.length > 2000) {
+      return NextResponse.json(
+        { error: "Input exceeds maximum length" },
+        { status: 400 }
+      );
+    }
+
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
         { error: "Invalid email address" },
         { status: 400 }
+      );
+    }
+
+    // Basic spam detection
+    const spamKeywords = ['viagra', 'casino', 'lottery', 'bitcoin giveaway', 'free money'];
+    const lowerMessage = message.toLowerCase();
+    if (spamKeywords.some(keyword => lowerMessage.includes(keyword))) {
+      // Silently reject spam
+      console.log('Spam detected from:', identifier);
+      return NextResponse.json(
+        { success: true, message: "Message received." },
+        { status: 200 }
       );
     }
 
@@ -64,8 +105,8 @@ Timestamp: ${new Date().toISOString()}
     return NextResponse.json(
       {
         success: true,
-        message:
-          "Message received. For immediate response, please email directly at jbrauck417@gmail.com",
+        message: "Message received. For immediate response, please email directly at jbrauck417@gmail.com",
+        remaining: rateLimitResult.remaining,
       },
       { status: 200 }
     );
