@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# Joe Brauckmann - Personal Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Modern, professional portfolio website showcasing my work as a Product Manager and Developer at Unchained.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- 🎨 Modern, animated UI with dark mode support
+- 📱 Fully responsive design
+- ⚡ Built with Next.js 14+ and TypeScript
+- 🎭 Smooth animations with Framer Motion
+- 🔄 Live GitHub activity feed
+- 📧 Contact form integration
+- 🌐 Deployed to brauckmann.xyz via Cloudflare
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Deployment:** Cloudflare (auto-deploys from main branch)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js 18+ and npm
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Install dependencies
+npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Run development server
+npm run dev
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Open http://localhost:3000
+```
 
-### `npm run eject`
+### Build for Production
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm run build
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+├── app/
+│   ├── api/contact/     # Contact form API route
+│   ├── layout.tsx       # Root layout with theme provider
+│   ├── page.tsx         # Home page
+│   └── globals.css      # Global styles
+├── components/
+│   ├── sections/        # Page sections (Hero, About, Experience, etc.)
+│   ├── ThemeProvider.tsx
+│   ├── Header.tsx
+│   └── Footer.tsx
+├── public/
+│   └── images/          # Static images (place headshot.jpg here)
+└── lib/                 # Utility functions
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Customization
 
-## Learn More
+### Update Images
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Headshot:**
+Place a square image (recommended 800x800px) at `/public/images/headshot.jpg`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Project Screenshots:**
+Add project images (1200x675px recommended) to `/public/images/projects/`:
+- `bitcoin-miner.png` - Bitcoin Miner screenshot
+- `sportstr.png` - Sportstr screenshot  
+- `bitcoin-voice-price.png` - Bitcoin Voice Price screenshot
 
-### Code Splitting
+If images aren't provided, placeholder graphics will be shown.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Update Content
 
-### Analyzing the Bundle Size
+Edit the relevant section components in `/components/sections/`:
+- `Hero.tsx` - Hero section content
+- `About.tsx` - About section and skills
+- `Experience.tsx` - Work experience and achievements
+- `FeaturedProjects.tsx` - Highlighted projects
+- `Projects.tsx` - Other projects
+- `Contact.tsx` - Contact information
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Update Metadata
 
-### Making a Progressive Web App
+Edit SEO metadata in `/app/layout.tsx`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Deployment
 
-### Advanced Configuration
+This site is configured to auto-deploy to brauckmann.xyz when changes are pushed to the `main` branch via Cloudflare Pages.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## License
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+© 2026 Joe Brauckmann. All rights reserved.
