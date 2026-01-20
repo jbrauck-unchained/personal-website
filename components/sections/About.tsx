@@ -30,7 +30,7 @@ export default function About() {
 
           <div className="grid md:grid-cols-2 gap-12 mb-12">
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-blue-600 dark:text-blue-400">
+              <h3 className="text-2xl font-bold mb-4 text-bitcoin-500 dark:text-bitcoin-400">
                 Product Manager Who Codes
               </h3>
               <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
@@ -53,7 +53,7 @@ export default function About() {
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-blue-600 dark:text-blue-400">
+              <h3 className="text-2xl font-bold mb-4 text-bitcoin-500 dark:text-bitcoin-400">
                 Bitcoin Specialist & Builder
               </h3>
               <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
@@ -87,13 +87,13 @@ export default function About() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg"
                 >
-                  <h4 className="font-bold text-lg mb-3 text-blue-600 dark:text-blue-400">
+                  <h4 className="font-bold text-lg mb-3 text-bitcoin-500 dark:text-bitcoin-400">
                     {skillGroup.category}
                   </h4>
                   <ul className="space-y-2">
                     {skillGroup.items.map((skill) => (
                       <li key={skill} className="text-gray-700 dark:text-gray-300 flex items-center">
-                        <svg className="w-4 h-4 mr-2 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4 mr-2 text-bitcoin-500 dark:text-bitcoin-400" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                         {skill}

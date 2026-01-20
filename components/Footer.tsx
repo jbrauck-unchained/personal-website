@@ -72,7 +72,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#about"
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+                  className="text-gray-600 dark:text-gray-400 hover:text-bitcoin-500 dark:hover:text-bitcoin-400"
                 >
                   About
                 </a>
@@ -80,7 +80,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#experience"
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+                  className="text-gray-600 dark:text-gray-400 hover:text-bitcoin-500 dark:hover:text-bitcoin-400"
                 >
                   Experience
                 </a>
@@ -88,7 +88,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#projects"
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+                  className="text-gray-600 dark:text-gray-400 hover:text-bitcoin-500 dark:hover:text-bitcoin-400"
                 >
                   Projects
                 </a>
@@ -96,7 +96,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#contact"
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+                  className="text-gray-600 dark:text-gray-400 hover:text-bitcoin-500 dark:hover:text-bitcoin-400"
                 >
                   Contact
                 </a>
@@ -113,7 +113,7 @@ export default function Footer() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="text-gray-600 dark:text-gray-400 hover:text-bitcoin-500 dark:hover:text-bitcoin-400 transition-colors"
                   aria-label={link.name}
                 >
                   {link.icon}

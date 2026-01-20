@@ -27,6 +27,7 @@ body {
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Account for fixed header */
 }
 
 /* Custom scrollbar */
@@ -39,18 +40,18 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #F7931A;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #EA580C;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #444;
+  background: #FB923C;
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #666;
+  background: #F7931A;
 }

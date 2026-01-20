@@ -118,7 +118,7 @@ export default function GitHubActivity() {
 
           {loading && (
             <div className="flex justify-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-bitcoin-500"></div>
             </div>
           )}
 
@@ -131,7 +131,7 @@ export default function GitHubActivity() {
                 href="https://github.com/jbrauck-unchained"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 dark:text-blue-400 hover:underline"
+                className="text-bitcoin-500 dark:text-bitcoin-400 hover:underline"
               >
                 View profile on GitHub →
               </a>
@@ -148,7 +148,7 @@ export default function GitHubActivity() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
                 >
-                  <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg text-blue-600 dark:text-blue-400">
+                  <div className="p-2 bg-bitcoin-100 dark:bg-bitcoin-900 rounded-lg text-bitcoin-500 dark:text-bitcoin-400">
                     {getEventIcon(event.type)}
                   </div>
                   <div className="flex-1 min-w-0">
@@ -163,7 +163,7 @@ export default function GitHubActivity() {
                     href={`https://github.com/${event.repo.name}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 dark:text-blue-400 hover:underline text-sm flex-shrink-0"
+                    className="text-bitcoin-500 dark:text-bitcoin-400 hover:underline text-sm flex-shrink-0"
                   >
                     View →
                   </a>
