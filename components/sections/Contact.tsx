@@ -51,17 +51,17 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-28 px-6 lg:px-12 bg-[var(--bg-primary)]" ref={ref}>
+    <section id="contact" className="py-36 px-6 lg:px-12 bg-[var(--bg-primary)]" ref={ref}>
       <div className="container mx-auto max-w-screen-xl">
         <div className={`reveal ${isVisible ? "is-visible" : ""}`}>
-          <div className="border-l-[6px] border-[var(--accent-primary)] pl-6 mb-6">
-            <h2 className="mb-3">Get in Touch</h2>
+          <div className="border-l-[6px] border-[var(--accent-primary)] pl-6 mb-12">
+            <h2 className="mb-4">Get in Touch</h2>
           </div>
-          <p className="text-[var(--text-muted)] mb-20 max-w-2xl text-lg">
+          <p className="text-[var(--text-muted)] mb-24 max-w-2xl text-lg">
             Interested in collaborating on Bitcoin projects, discussing product strategy, or just want to connect? Reach out directly.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-10">
+          <div className="grid md:grid-cols-2 gap-12">
             {contactMethods.map((method, index) => (
               <a
                 key={method.label}

@@ -36,21 +36,21 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-28 px-6 lg:px-12 bg-[var(--bg-primary)]" ref={ref}>
+    <section id="about" className="py-36 px-6 lg:px-12 bg-[var(--bg-primary)]" ref={ref}>
       <div className="container mx-auto max-w-screen-xl">
         <div className={`reveal ${isVisible ? "is-visible" : ""}`}>
-          <div className="border-l-[6px] border-[var(--accent-primary)] pl-6 mb-6">
-            <h2 className="mb-3">About</h2>
+          <div className="border-l-[6px] border-[var(--accent-primary)] pl-6 mb-12">
+            <h2 className="mb-4">About</h2>
           </div>
 
           {/* Asymmetric two-column layout */}
-          <div className="grid lg:grid-cols-12 gap-16 mb-20">
+          <div className="grid lg:grid-cols-12 gap-20 mb-24">
             <div className="lg:col-span-7">
-              <div className="mb-12 pb-12 border-b-2 border-[var(--border-color)]">
-                <h3 className="text-2xl font-bold mb-6 uppercase tracking-wide">
+              <div className="mb-16 pb-16 border-b-2 border-[var(--border-color)]">
+                <h3 className="text-2xl font-bold mb-8 uppercase tracking-wide">
                   Product Manager Who Codes
                 </h3>
-                <p className="text-[var(--text-primary)] mb-6 leading-relaxed">
+                <p className="text-[var(--text-primary)] mb-8 leading-relaxed">
                   I'm a Product Manager at Unchained with a unique background that combines deep technical
                   expertise with product leadership. My journey from QA Engineer to PM has given me a rare
                   perspective: I understand both the code and the customer.
@@ -70,10 +70,10 @@ export default function About() {
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold mb-6 uppercase tracking-wide">
+                <h3 className="text-2xl font-bold mb-8 uppercase tracking-wide">
                   Bitcoin Specialist & Builder
                 </h3>
-                <p className="text-[var(--text-primary)] mb-6 leading-relaxed">
+                <p className="text-[var(--text-primary)] mb-8 leading-relaxed">
                   My work in Bitcoin and self-custody technology isn't just professional—it's personal. I'm passionate
                   about building tools that give people true ownership of their wealth through collaborative custody
                   and multisig security.
