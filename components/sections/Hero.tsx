@@ -14,7 +14,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
           >
             <motion.h1
-              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-bitcoin-600 to-orange-600 bg-clip-text text-transparent"
+              className="text-5xl md:text-7xl font-bold mb-6 text-bitcoin-500"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
