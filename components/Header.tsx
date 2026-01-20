@@ -57,7 +57,7 @@ export default function Header() {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <a href="#" className="text-2xl font-bold text-gray-900 dark:text-white">
-            JB
+            
           </a>
 
           <div className="hidden md:flex items-center gap-8">

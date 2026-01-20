@@ -150,7 +150,7 @@ export default function Contact() {
                 </p>
                 <a
                   href="mailto:jbrauck417@gmail.com"
-                  className="inline-flex items-center px-8 py-3 bg-bitcoin-600 hover:bg-bitcoin-700 text-white rounded-lg font-medium transition-colors shadow-lg hover:shadow-xl"
+                  className="inline-flex items-center px-8 py-3 bg-bitcoin-600 hover:bg-bitcoin-700 text-black dark:text-white rounded-lg font-medium transition-colors shadow-lg hover:shadow-xl"
                 >
                   <svg
                     className="w-5 h-5 mr-2"

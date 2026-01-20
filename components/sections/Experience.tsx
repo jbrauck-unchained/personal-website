@@ -64,7 +64,7 @@ export default function Experience() {
           highlight: false,
         },
         {
-          text: "Wrote PRDs for 'Capacity Killer' initiative that relieved 40 hours per week of operational burden through automation",
+          text: "Wrote PRDs for 'Capacity Killer' initiative that relieved 40 hours per month of operational burden through automation",
           highlight: true,
         },
         {
@@ -215,7 +215,7 @@ export default function Experience() {
               <div className="text-gray-700 dark:text-gray-300">Daily Signature Capacity Scaled</div>
             </div>
             <div className="bg-white dark:bg-gray-800 border-4 border-bitcoin-500 p-6 rounded-lg text-center shadow-lg">
-              <div className="text-4xl font-bold mb-2 text-bitcoin-600 dark:text-bitcoin-400">40 hrs/week</div>
+              <div className="text-4xl font-bold mb-2 text-bitcoin-600 dark:text-bitcoin-400">40 hrs/month</div>
               <div className="text-gray-700 dark:text-gray-300">Operational Capacity Saved</div>
             </div>
           </motion.div>
