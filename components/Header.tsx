@@ -113,15 +113,15 @@ export default function Header() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden overflow-hidden"
+              className="md:hidden overflow-hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700"
             >
-              <div className="py-4 space-y-3">
+              <div className="py-4 space-y-1">
                 {navItems.map((item) => (
                   <a
                     key={item.href}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block py-2 text-gray-700 dark:text-gray-300 hover:text-bitcoin-500 dark:hover:text-bitcoin-400 transition-colors"
+                    className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-bitcoin-50 dark:hover:bg-gray-800 hover:text-bitcoin-600 dark:hover:text-bitcoin-400 transition-colors rounded-lg"
                   >
                     {item.label}
                   </a>
