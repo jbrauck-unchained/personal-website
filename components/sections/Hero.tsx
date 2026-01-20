@@ -28,7 +28,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-              Product Manager | Developer | Bitcoin Specialist
+              Product Manager | Developer | Bitcoin
             </motion.h2>
 
             <motion.p
