@@ -18,6 +18,13 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleMobileNavClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Allow the default scroll behavior to happen first
+    setTimeout(() => {
+      setMobileMenuOpen(false);
+    }, 100);
+  };
+
   const navItems = [
     { href: "#about", label: "About" },
     { href: "#experience", label: "Experience" },
@@ -120,7 +127,7 @@ export default function Header() {
                   <a
                     key={item.href}
                     href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={handleMobileNavClick}
                     className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-bitcoin-50 dark:hover:bg-gray-800 hover:text-bitcoin-600 dark:hover:text-bitcoin-400 transition-colors rounded-lg"
                   >
                     {item.label}
