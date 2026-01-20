@@ -143,13 +143,13 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-36 px-6 lg:px-12 bg-[var(--bg-tertiary)]" ref={ref}>
+    <section id="experience" className="py-48 px-6 lg:px-12 bg-[var(--bg-tertiary)]" ref={ref}>
       <div className="container mx-auto max-w-screen-xl">
         <div className={`reveal ${isVisible ? "is-visible" : ""}`}>
-          <div className="border-l-[6px] border-[var(--accent-primary)] pl-6 mb-12">
-            <h2 className="mb-4">Experience</h2>
+          <div className="border-l-[6px] border-[var(--accent-primary)] pl-6 mb-20">
+            <h2 className="mb-8">Experience</h2>
           </div>
-          <p className="text-[var(--text-muted)] mb-24 max-w-2xl text-lg">
+          <p className="text-[var(--text-muted)] mb-32 max-w-2xl text-lg">
             From QA Support Engineer to Product Manager—nearly 4 years of growth leveraging technical depth to ship impactful products
           </p>
 
@@ -160,7 +160,7 @@ export default function Experience() {
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className="relative mb-20 pl-12"
+                className="relative mb-32 pl-12"
                 style={{
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? "translateX(0)" : "translateX(-40px)",

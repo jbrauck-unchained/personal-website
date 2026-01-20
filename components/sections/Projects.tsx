@@ -73,17 +73,17 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-36 px-6 lg:px-12 bg-[var(--bg-primary)]" ref={ref}>
+    <section id="projects" className="py-48 px-6 lg:px-12 bg-[var(--bg-primary)]" ref={ref}>
       <div className="container mx-auto max-w-screen-xl">
         <div className={`reveal ${isVisible ? "is-visible" : ""}`}>
-          <div className="border-l-[6px] border-[var(--accent-primary)] pl-6 mb-12">
-            <h2 className="mb-4">Other Projects</h2>
+          <div className="border-l-[6px] border-[var(--accent-primary)] pl-6 mb-20">
+            <h2 className="mb-8">Other Projects</h2>
           </div>
-          <p className="text-[var(--text-muted)] mb-24 max-w-2xl text-lg">
+          <p className="text-[var(--text-muted)] mb-32 max-w-2xl text-lg">
             Additional work spanning Bitcoin tools, automation, and developer utilities
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
             {otherProjects.map((project, index) => (
               <div
                 key={project.title}

@@ -68,17 +68,17 @@ export default function FeaturedProjects() {
   ];
 
   return (
-    <section id="featured-projects" className="py-36 px-6 lg:px-12 bg-[var(--bg-tertiary)]" ref={ref}>
+    <section id="featured-projects" className="py-48 px-6 lg:px-12 bg-[var(--bg-tertiary)]" ref={ref}>
       <div className="container mx-auto max-w-screen-xl">
         <div className={`reveal ${isVisible ? "is-visible" : ""}`}>
-          <div className="border-l-[6px] border-[var(--accent-primary)] pl-6 mb-12">
-            <h2 className="mb-4">Featured Projects</h2>
+          <div className="border-l-[6px] border-[var(--accent-primary)] pl-6 mb-20">
+            <h2 className="mb-8">Featured Projects</h2>
           </div>
-          <p className="text-[var(--text-muted)] mb-24 max-w-2xl text-lg">
+          <p className="text-[var(--text-muted)] mb-32 max-w-2xl text-lg">
             Highlighted work showcasing Bitcoin technology, developer tools, and educational applications
           </p>
 
-          <div className="space-y-40">
+          <div className="space-y-48">
             {projects.map((project, index) => (
               <div
                 key={project.title}
