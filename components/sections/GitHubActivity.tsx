@@ -96,11 +96,11 @@ export default function GitHubActivity() {
   };
 
   return (
-    <section id="github-activity" className="py-20 px-6 bg-[var(--bg-tertiary)]" ref={ref}>
-      <div className="container mx-auto max-w-4xl">
+    <section id="github-activity" className="py-28 px-6 lg:px-12 bg-[var(--bg-tertiary)]" ref={ref}>
+      <div className="container mx-auto max-w-screen-xl">
         <div className={`reveal ${isVisible ? "is-visible" : ""}`}>
-          <div className="border-l-[6px] border-[var(--accent-primary)] pl-6 mb-4">
-            <h2 className="mb-2">Recent GitHub Activity</h2>
+          <div className="border-l-[6px] border-[var(--accent-primary)] pl-6 mb-6">
+            <h2 className="mb-3">Recent GitHub Activity</h2>
           </div>
 
           {loading && (

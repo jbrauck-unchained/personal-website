@@ -2,21 +2,21 @@
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center pt-32 pb-20 px-6 bg-[var(--bg-primary)]">
-      <div className="container mx-auto max-w-7xl">
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
+    <section className="min-h-screen flex items-center pt-32 pb-24 px-6 lg:px-12 bg-[var(--bg-primary)]">
+      <div className="container mx-auto max-w-screen-xl">
+        <div className="grid lg:grid-cols-12 gap-16 items-start">
           {/* Main content - asymmetric layout */}
           <div className="lg:col-span-8 animate-in">
             {/* Massive typography */}
-            <h1 className="mb-6 leading-none">
+            <h1 className="mb-10 leading-none">
               <span className="block">JOE</span>
               <span className="block">BRAUCK</span>
               <span className="block">MANN</span>
             </h1>
 
             {/* Subtitle with uppercase tracking */}
-            <div className="mb-8 max-w-2xl border-l-[6px] border-[var(--accent-primary)] pl-6">
-              <h2 className="text-xl md:text-2xl font-semibold uppercase tracking-wider mb-2">
+            <div className="mb-12 max-w-2xl border-l-[6px] border-[var(--accent-primary)] pl-6">
+              <h2 className="text-xl md:text-2xl font-semibold uppercase tracking-wider mb-3">
                 Product Manager
               </h2>
               <p className="text-lg md:text-xl text-[var(--text-muted)] font-medium">
@@ -25,14 +25,14 @@ export default function Hero() {
             </div>
 
             {/* Description */}
-            <p className="text-lg max-w-2xl mb-10 leading-relaxed animate-in-delay-1">
+            <p className="text-lg max-w-2xl mb-14 leading-relaxed animate-in-delay-1">
               Technical PM who codes. Shipping native iOS and Android apps for Bitcoin self-custody.
               Scaling enterprise key management from ~50 to thousands of daily signatures.
               Automating everything with AI.
             </p>
 
             {/* CTAs with brutalist styling */}
-            <div className="flex flex-wrap gap-4 mb-12 animate-in-delay-2">
+            <div className="flex flex-wrap gap-4 mb-14 animate-in-delay-2">
               <a
                 href="#projects"
                 className="px-8 py-4 bg-[var(--bg-secondary)] text-[var(--text-secondary)] border-brutalist font-bold uppercase tracking-wider hover:translate-x-1 hover:translate-y-1 transition-transform text-sm md:text-base"

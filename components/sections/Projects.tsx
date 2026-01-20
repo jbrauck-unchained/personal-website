@@ -73,10 +73,10 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20 px-6 bg-[var(--bg-primary)]" ref={ref}>
-      <div className="container mx-auto max-w-7xl">
+    <section id="projects" className="py-28 px-6 lg:px-12 bg-[var(--bg-primary)]" ref={ref}>
+      <div className="container mx-auto max-w-screen-xl">
         <div className={`reveal ${isVisible ? "is-visible" : ""}`}>
-          <div className="border-l-[6px] border-[var(--accent-primary)] pl-6 mb-4">
+          <div className="border-l-[6px] border-[var(--accent-primary)] pl-6 mb-6">
             <h2 className="mb-2">Other Projects</h2>
           </div>
           <p className="text-[var(--text-muted)] mb-16 max-w-2xl text-lg">
