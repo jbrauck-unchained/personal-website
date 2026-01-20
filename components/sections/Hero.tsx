@@ -9,9 +9,7 @@ export default function Hero() {
           <div className="lg:col-span-8 animate-in">
             {/* Massive typography */}
             <h1 className="mb-10 leading-none">
-              <span className="block">JOE</span>
-              <span className="block">BRAUCK</span>
-              <span className="block">MANN</span>
+              JOE BRAUCKMANN
             </h1>
 
             {/* Subtitle with uppercase tracking */}
