@@ -1,12 +1,31 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Experience() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1, rootMargin: "-100px" }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
 
   const experiences = [
     {
@@ -124,47 +143,45 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-20 px-6 bg-gray-50 dark:bg-gray-900" ref={ref}>
+    <section id="experience" className="py-20 px-6 bg-[var(--bg-tertiary)]" ref={ref}>
       <div className="container mx-auto max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-            Experience
-          </h2>
-          <p className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+        <div className={`reveal ${isVisible ? "is-visible" : ""}`}>
+          <div className="border-l-[6px] border-[var(--accent-primary)] pl-6 mb-4">
+            <h2 className="mb-2">Experience</h2>
+          </div>
+          <p className="text-[var(--text-muted)] mb-16 max-w-2xl text-lg">
             From QA Support Engineer to Product Manager—nearly 4 years of growth leveraging technical depth to ship impactful products
           </p>
 
           <div className="relative max-w-4xl mx-auto">
-            {/* Timeline line */}
-            <div className="absolute left-2 top-0 bottom-0 w-0.5 bg-blue-200 dark:bg-blue-800"></div>
+            {/* Timeline line - BRUTALIST */}
+            <div className="absolute left-2 top-0 bottom-0 w-1 bg-[var(--border-color)]"></div>
 
             {experiences.map((exp, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, x: -50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="relative mb-12 pl-10"
+                className="relative mb-16 pl-12"
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? "translateX(0)" : "translateX(-40px)",
+                  transition: `all 0.6s ease-out ${index * 0.15}s`
+                }}
               >
-                {/* Timeline dot */}
-                <div className="absolute left-0 top-0 w-5 h-5 bg-blue-600 dark:bg-blue-400 rounded-full border-4 border-gray-50 dark:border-gray-900 z-10"></div>
+                {/* Timeline marker - SQUARE, not circle */}
+                <div className="absolute left-0 top-0 w-5 h-5 bg-[var(--accent-primary)] border-brutalist-2 z-10"></div>
 
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                <div className="bg-[var(--bg-primary)] p-6 border-brutalist hard-shadow-sm hover:translate-x-1 hover:translate-y-1 transition-transform">
                   <div className="flex flex-col items-start">
-                    <span className="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium mb-2">
+                    <span className="inline-block px-3 py-1 bg-[var(--bg-secondary)] text-[var(--text-secondary)] text-xs font-bold uppercase tracking-wider mb-3 font-mono">
                       {exp.period}
                     </span>
-                    <h3 className="text-2xl font-bold mb-1">
+                    <h3 className="text-3xl font-bold mb-1">
                       {exp.title}
                     </h3>
-                    <p className="text-lg text-blue-600 dark:text-blue-400 font-medium mb-1">
+                    <p className="text-xl text-[var(--accent-primary)] font-bold mb-1 uppercase tracking-wide">
                       {exp.company}
                     </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                    <p className="text-sm text-[var(--text-muted)] mb-6 uppercase tracking-wider font-mono">
                       {exp.location}
                     </p>
                   </div>
@@ -174,52 +191,51 @@ export default function Experience() {
                       <li
                         key={achIndex}
                         className={`flex items-start ${
-                          achievement.highlight 
-                            ? "text-gray-900 dark:text-white font-medium" 
-                            : "text-gray-700 dark:text-gray-300"
+                          achievement.highlight
+                            ? "text-[var(--text-primary)] font-semibold"
+                            : "text-[var(--text-muted)]"
                         }`}
                       >
-                        <svg 
-                          className={`w-5 h-5 flex-shrink-0 mt-0.5 mr-2 ${
-                            achievement.highlight 
-                              ? "text-blue-600 dark:text-blue-400" 
-                              : "text-blue-500 dark:text-blue-500"
-                          }`}
-                          fill="currentColor" 
-                          viewBox="0 0 20 20"
-                        >
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
+                        <div className={`w-2 h-2 flex-shrink-0 mt-2 mr-3 ${
+                          achievement.highlight
+                            ? "bg-[var(--accent-primary)]"
+                            : "bg-[var(--border-color)]"
+                        }`} />
                         <span>{achievement.text}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
-          {/* Key Metrics/Highlights */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-16 grid md:grid-cols-3 gap-6"
+          {/* Key Metrics - BRUTALIST CARDS */}
+          <div
+            className="mt-20 grid md:grid-cols-3 gap-6"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? "translateY(0)" : "translateY(30px)",
+              transition: "all 0.6s ease-out 0.6s"
+            }}
           >
-            <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-6 rounded-lg text-center">
-              <div className="text-4xl font-bold mb-2">4 Roles</div>
-              <div className="text-blue-100">QA Support → QA → APM → PM in Under 4 Years</div>
+            <div className="bg-[var(--bg-secondary)] text-[var(--text-secondary)] p-8 border-brutalist hard-shadow text-center">
+              <div className="text-5xl font-black mb-3 text-[var(--accent-primary)]">4</div>
+              <div className="text-sm font-bold uppercase tracking-wider">Roles in Under 4 Years</div>
+              <div className="text-xs mt-2 font-mono opacity-80">QA Support → PM</div>
             </div>
-            <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-6 rounded-lg text-center">
-              <div className="text-4xl font-bold mb-2">50 → 1000s</div>
-              <div className="text-purple-100">Daily Signature Capacity Scaled</div>
+            <div className="bg-[var(--accent-primary)] text-[var(--bg-secondary)] p-8 border-brutalist hard-shadow text-center">
+              <div className="text-5xl font-black mb-3">50→1000s</div>
+              <div className="text-sm font-bold uppercase tracking-wider">Daily Signatures</div>
+              <div className="text-xs mt-2 font-mono opacity-80">Capacity Scaled</div>
             </div>
-            <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 text-white p-6 rounded-lg text-center">
-              <div className="text-4xl font-bold mb-2">40 hrs/week</div>
-              <div className="text-indigo-100">Operational Capacity Saved</div>
+            <div className="bg-[var(--bg-secondary)] text-[var(--text-secondary)] p-8 border-brutalist hard-shadow text-center">
+              <div className="text-5xl font-black mb-3 text-[var(--accent-primary)]">40</div>
+              <div className="text-sm font-bold uppercase tracking-wider">hrs/week Saved</div>
+              <div className="text-xs mt-2 font-mono opacity-80">Via Automation</div>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

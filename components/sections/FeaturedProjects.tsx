@@ -1,13 +1,31 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 export default function FeaturedProjects() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1, rootMargin: "-100px" }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
 
   const projects = [
     {
@@ -16,7 +34,6 @@ export default function FeaturedProjects() {
       tech: ["JavaScript", "Web Crypto API", "SHA256"],
       github: "https://github.com/jbrauck-unchained/bitcoin-miner",
       demo: "https://jbrauck-unchained.github.io/bitcoin-miner/",
-      image: "/images/projects/bitcoin-miner.png",
       highlights: [
         "Real-time SHA256 hashing visualization",
         "Adjustable mining difficulty",
@@ -29,7 +46,6 @@ export default function FeaturedProjects() {
       description: "Python-based RSS feed aggregator that automatically posts sports news headlines to Nostr relays. Features intelligent duplicate detection to prevent spam and supports multiple free US sports news platforms.",
       tech: ["Python", "Nostr Protocol", "RSS", "Duplicate Detection"],
       github: "https://github.com/jbrauck-unchained/sportstr",
-      image: "/images/projects/sportstr.png",
       highlights: [
         "Automated RSS-to-Nostr bridge",
         "Multi-platform sports news aggregation",
@@ -42,7 +58,6 @@ export default function FeaturedProjects() {
       description: "Voice-activated Bitcoin price checker that integrates with Mempool running on Umbrel. A practical tool demonstrating IoT integration with Bitcoin infrastructure on local networks.",
       tech: ["JavaScript", "Voice Recognition API", "Mempool Integration"],
       github: "https://github.com/jbrauck-unchained/bitcoin-voice-price",
-      image: "/images/projects/bitcoin-voice-price.png",
       highlights: [
         "Voice-activated price queries",
         "Local Mempool integration",
@@ -53,123 +68,111 @@ export default function FeaturedProjects() {
   ];
 
   return (
-    <section id="featured-projects" className="py-20 px-6 bg-white dark:bg-gray-800" ref={ref}>
+    <section id="featured-projects" className="py-20 px-6 bg-[var(--bg-tertiary)]" ref={ref}>
       <div className="container mx-auto max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-            Featured Projects
-          </h2>
-          <p className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+        <div className={`reveal ${isVisible ? "is-visible" : ""}`}>
+          <div className="border-l-[6px] border-[var(--accent-primary)] pl-6 mb-4">
+            <h2 className="mb-2">Featured Projects</h2>
+          </div>
+          <p className="text-[var(--text-muted)] mb-16 max-w-2xl text-lg">
             Highlighted work showcasing Bitcoin technology, developer tools, and educational applications
           </p>
 
-          <div className="space-y-16">
+          <div className="space-y-24">
             {projects.map((project, index) => (
-              <motion.div
+              <div
                 key={project.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className={`grid lg:grid-cols-2 gap-8 items-start ${
-                  index % 2 === 1 ? "lg:grid-flow-dense" : ""
+                className={`grid lg:grid-cols-12 gap-8 items-start ${
+                  index % 2 === 1 ? "" : ""
                 }`}
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? "translateY(0)" : "translateY(30px)",
+                  transition: `all 0.6s ease-out ${index * 0.2}s`
+                }}
               >
-                {/* Project Info */}
-                <div className={index % 2 === 1 ? "lg:col-start-2" : ""}>
-                  <h3 className="text-3xl font-bold mb-3">{project.title}</h3>
-                  <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
+                {/* Content side - alternating */}
+                <div className={`lg:col-span-7 ${index % 2 === 1 ? "lg:col-start-6" : ""}`}>
+                  <div className="mb-6">
+                    <h3 className="text-4xl font-black mb-4 uppercase tracking-tight">
+                      {project.title}
+                    </h3>
+                    <p className="text-[var(--text-primary)] text-lg leading-relaxed mb-6">
+                      {project.description}
+                    </p>
+                  </div>
 
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-sm text-gray-500 dark:text-gray-400 mb-2">
-                      KEY FEATURES
-                    </h4>
+                  {/* Highlights */}
+                  <div className="mb-6 border-l-4 border-[var(--accent-primary)] pl-4">
+                    <div className="text-xs uppercase tracking-widest font-bold text-[var(--text-muted)] mb-3">
+                      Key Features
+                    </div>
                     <ul className="space-y-2">
                       {project.highlights.map((highlight, hIndex) => (
-                        <li key={hIndex} className="flex items-start text-gray-700 dark:text-gray-300">
-                          <svg className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                          </svg>
-                          {highlight}
+                        <li key={hIndex} className="flex items-start text-[var(--text-primary)]">
+                          <div className="w-2 h-2 bg-[var(--accent-primary)] mr-3 mt-2 flex-shrink-0" />
+                          <span>{highlight}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
+                  {/* Tech stack */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium"
+                        className="px-3 py-1 bg-[var(--bg-primary)] border-brutalist-2 text-xs font-bold uppercase tracking-wider font-mono"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
+                  {/* CTAs */}
                   <div className="flex gap-4">
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
+                      className="px-6 py-3 bg-[var(--bg-secondary)] text-[var(--text-secondary)] border-brutalist font-bold uppercase tracking-wider hover:translate-x-1 hover:translate-y-1 transition-transform text-sm"
                     >
-                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                      </svg>
-                      View on GitHub
+                      GitHub ▸
                     </a>
                     {project.demo && (
                       <a
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-6 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg font-medium hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors"
+                        className="px-6 py-3 bg-[var(--accent-primary)] text-[var(--bg-secondary)] border-brutalist font-bold uppercase tracking-wider hover:bg-[var(--accent-hover)] transition-colors text-sm"
                       >
-                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
                         Live Demo
                       </a>
                     )}
                   </div>
                 </div>
 
-                {/* Project Preview */}
-                <div className={index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}>
-                  <div className="bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden shadow-xl">
-                    <div className="relative w-full aspect-video bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800">
-                      <Image
-                        src={project.image}
-                        alt={`${project.title} screenshot`}
-                        fill
-                        className="object-cover"
-                        onError={(e) => {
-                          // If image fails to load, hide it and show placeholder
-                          e.currentTarget.style.display = 'none';
-                        }}
-                      />
-                      {/* Fallback placeholder if image doesn't exist */}
-                      <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-blue-500/20 to-purple-600/20 backdrop-blur-sm">
-                        <svg className="w-24 h-24 mb-4 opacity-50 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                        </svg>
-                        <p className="text-gray-600 dark:text-gray-400 font-medium">
-                          {project.title}
-                        </p>
+                {/* Visual side - brutalist card, alternating position */}
+                <div className={`lg:col-span-5 ${index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}>
+                  <div
+                    className={`border-brutalist bg-[var(--bg-secondary)] p-8 hard-shadow-lg ${
+                      index % 2 === 0 ? "rotate-1" : "-rotate-1"
+                    } hover:rotate-0 transition-transform`}
+                  >
+                    <div className="aspect-video bg-[var(--accent-primary)] flex items-center justify-center border-brutalist-2 border-[var(--bg-primary)]">
+                      <div className="text-[var(--bg-secondary)] font-black text-6xl font-mono">
+                        {project.title.charAt(0)}
                       </div>
+                    </div>
+                    <div className="mt-4 text-[var(--text-secondary)] font-mono text-xs uppercase tracking-wider text-center">
+                      Project #{String(index + 1).padStart(2, "0")}
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

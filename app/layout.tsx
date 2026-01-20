@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
-const inter = Inter({ subsets: ["latin"] });
+import CustomCursor from "@/components/CustomCursor";
+import StatusIndicator from "@/components/StatusIndicator";
 
 export const metadata: Metadata = {
   title: "Joe Brauckmann | Product Manager & Developer",
@@ -50,10 +49,12 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body>
         <ThemeProvider>
+          <CustomCursor />
+          <StatusIndicator />
           <Header />
-          <main className="min-h-screen">
+          <main className="min-h-screen relative z-content">
             {children}
           </main>
           <Footer />
