@@ -18,11 +18,22 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleMobileNavClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // Allow the default scroll behavior to happen first
-    setTimeout(() => {
-      setMobileMenuOpen(false);
-    }, 100);
+  const handleMobileNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+
+    // Get the target element
+    const targetId = href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      // Scroll to the target
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Close menu after scroll starts
+      setTimeout(() => {
+        setMobileMenuOpen(false);
+      }, 300);
+    }
   };
 
   const navItems = [
@@ -127,7 +138,7 @@ export default function Header() {
                   <a
                     key={item.href}
                     href={item.href}
-                    onClick={handleMobileNavClick}
+                    onClick={(e) => handleMobileNavClick(e, item.href)}
                     className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-bitcoin-50 dark:hover:bg-gray-800 hover:text-bitcoin-600 dark:hover:text-bitcoin-400 transition-colors rounded-lg"
                   >
                     {item.label}
