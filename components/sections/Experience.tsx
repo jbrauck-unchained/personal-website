@@ -206,17 +206,17 @@ export default function Experience() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="mt-16 grid md:grid-cols-3 gap-6"
           >
-            <div className="bg-white dark:bg-bitcoin-600 border-4 border-bitcoin-500 p-6 rounded-lg text-center shadow-lg">
-              <div className="text-4xl font-bold mb-2 text-bitcoin-600 dark:text-white">4 Roles</div>
-              <div className="text-gray-700 dark:text-bitcoin-100">QA Support → QA → APM → PM in Under 4 Years</div>
+            <div className="bg-white dark:bg-gray-800 border-4 border-bitcoin-500 p-6 rounded-lg text-center shadow-lg">
+              <div className="text-4xl font-bold mb-2 text-bitcoin-600 dark:text-bitcoin-400">4 Roles</div>
+              <div className="text-gray-700 dark:text-gray-300">QA Support → QA → APM → PM in Under 4 Years</div>
             </div>
-            <div className="bg-white dark:bg-orange-600 border-4 border-orange-500 p-6 rounded-lg text-center shadow-lg">
-              <div className="text-4xl font-bold mb-2 text-orange-600 dark:text-white">50 → 1000s</div>
-              <div className="text-gray-700 dark:text-orange-100">Daily Signature Capacity Scaled</div>
+            <div className="bg-white dark:bg-gray-800 border-4 border-orange-500 p-6 rounded-lg text-center shadow-lg">
+              <div className="text-4xl font-bold mb-2 text-orange-600 dark:text-orange-400">50 → 1000s</div>
+              <div className="text-gray-700 dark:text-gray-300">Daily Signature Capacity Scaled</div>
             </div>
-            <div className="bg-white dark:bg-orange-700 border-4 border-bitcoin-500 p-6 rounded-lg text-center shadow-lg">
-              <div className="text-4xl font-bold mb-2 text-bitcoin-600 dark:text-white">40 hrs/week</div>
-              <div className="text-gray-700 dark:text-orange-100">Operational Capacity Saved</div>
+            <div className="bg-white dark:bg-gray-800 border-4 border-bitcoin-500 p-6 rounded-lg text-center shadow-lg">
+              <div className="text-4xl font-bold mb-2 text-bitcoin-600 dark:text-bitcoin-400">40 hrs/week</div>
+              <div className="text-gray-700 dark:text-gray-300">Operational Capacity Saved</div>
             </div>
           </motion.div>
         </motion.div>
