@@ -140,7 +140,7 @@ export default function Experience() {
 
           <div className="relative max-w-4xl mx-auto">
             {/* Timeline line */}
-            <div className="absolute left-2 top-0 bottom-0 w-0.5 bg-blue-200 dark:bg-blue-800"></div>
+            <div className="absolute left-2 top-0 bottom-0 w-0.5 bg-bitcoin-200 dark:bg-bitcoin-800"></div>
 
             {experiences.map((exp, index) => (
               <motion.div
@@ -151,17 +151,17 @@ export default function Experience() {
                 className="relative mb-12 pl-10"
               >
                 {/* Timeline dot */}
-                <div className="absolute left-0 top-0 w-5 h-5 bg-blue-600 dark:bg-blue-400 rounded-full border-4 border-gray-50 dark:border-gray-900 z-10"></div>
+                <div className="absolute left-0 top-0 w-5 h-5 bg-bitcoin-500 dark:bg-bitcoin-400 rounded-full border-4 border-gray-50 dark:border-gray-900 z-10"></div>
 
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
                   <div className="flex flex-col items-start">
-                    <span className="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium mb-2">
+                    <span className="inline-block px-3 py-1 bg-bitcoin-100 dark:bg-bitcoin-900 text-bitcoin-700 dark:text-bitcoin-300 rounded-full text-sm font-medium mb-2">
                       {exp.period}
                     </span>
                     <h3 className="text-2xl font-bold mb-1">
                       {exp.title}
                     </h3>
-                    <p className="text-lg text-blue-600 dark:text-blue-400 font-medium mb-1">
+                    <p className="text-lg text-bitcoin-500 dark:text-bitcoin-400 font-medium mb-1">
                       {exp.company}
                     </p>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
@@ -182,8 +182,8 @@ export default function Experience() {
                         <svg 
                           className={`w-5 h-5 flex-shrink-0 mt-0.5 mr-2 ${
                             achievement.highlight 
-                              ? "text-blue-600 dark:text-blue-400" 
-                              : "text-blue-500 dark:text-blue-500"
+                              ? "text-bitcoin-500 dark:text-bitcoin-400" 
+                              : "text-bitcoin-500 dark:text-bitcoin-500"
                           }`}
                           fill="currentColor" 
                           viewBox="0 0 20 20"
@@ -206,17 +206,17 @@ export default function Experience() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="mt-16 grid md:grid-cols-3 gap-6"
           >
-            <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-6 rounded-lg text-center">
+            <div className="bg-gradient-to-br from-bitcoin-500 to-bitcoin-600 text-white p-6 rounded-lg text-center">
               <div className="text-4xl font-bold mb-2">4 Roles</div>
-              <div className="text-blue-100">QA Support → QA → APM → PM in Under 4 Years</div>
+              <div className="text-bitcoin-100">QA Support → QA → APM → PM in Under 4 Years</div>
             </div>
-            <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-6 rounded-lg text-center">
+            <div className="bg-gradient-to-br from-orange-500 to-orange-600 text-white p-6 rounded-lg text-center">
               <div className="text-4xl font-bold mb-2">50 → 1000s</div>
-              <div className="text-purple-100">Daily Signature Capacity Scaled</div>
+              <div className="text-orange-100">Daily Signature Capacity Scaled</div>
             </div>
-            <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 text-white p-6 rounded-lg text-center">
+            <div className="bg-gradient-to-br from-bitcoin-600 to-orange-600 text-white p-6 rounded-lg text-center">
               <div className="text-4xl font-bold mb-2">40 hrs/week</div>
-              <div className="text-indigo-100">Operational Capacity Saved</div>
+              <div className="text-orange-100">Operational Capacity Saved</div>
             </div>
           </motion.div>
         </motion.div>

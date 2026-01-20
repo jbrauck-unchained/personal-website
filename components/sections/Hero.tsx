@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 px-6 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
+    <section className="min-h-screen flex items-center justify-center pt-20 px-6 bg-gradient-to-br from-orange-50 via-white to-bitcoin-50 dark:from-gray-900 dark:via-gray-800 dark:to-orange-950">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -14,7 +14,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
           >
             <motion.h1
-              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-bitcoin-600 to-orange-600 bg-clip-text text-transparent"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
@@ -50,13 +50,13 @@ export default function Hero() {
             >
               <a
                 href="#projects"
-                className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors shadow-lg hover:shadow-xl"
+                className="px-8 py-3 bg-bitcoin-500 hover:bg-bitcoin-600 text-white rounded-lg font-medium transition-colors shadow-lg hover:shadow-xl"
               >
                 View Projects
               </a>
               <a
                 href="#contact"
-                className="px-8 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg font-medium transition-colors"
+                className="px-8 py-3 border-2 border-bitcoin-500 text-bitcoin-600 dark:text-bitcoin-400 hover:bg-bitcoin-50 dark:hover:bg-bitcoin-900/30 rounded-lg font-medium transition-colors"
               >
                 Get in Touch
               </a>
@@ -72,7 +72,7 @@ export default function Hero() {
                 href="https://github.com/jbrauck-unchained"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-gray-600 dark:text-gray-400 hover:text-bitcoin-500 dark:hover:text-bitcoin-400 transition-colors"
               >
                 <svg
                   className="w-6 h-6"
@@ -90,7 +90,7 @@ export default function Hero() {
                 href="https://linkedin.com/in/joseph-brauckmann"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-gray-600 dark:text-gray-400 hover:text-bitcoin-500 dark:hover:text-bitcoin-400 transition-colors"
               >
                 <svg
                   className="w-6 h-6"
@@ -104,7 +104,7 @@ export default function Hero() {
                 href="https://twitter.com/rnutstink"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-gray-600 dark:text-gray-400 hover:text-bitcoin-500 dark:hover:text-bitcoin-400 transition-colors"
               >
                 <svg
                   className="w-6 h-6"
@@ -124,7 +124,7 @@ export default function Hero() {
             className="relative"
           >
             <div className="relative w-full aspect-square max-w-md mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full blur-3xl opacity-30"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-bitcoin-400 to-orange-600 rounded-full blur-3xl opacity-30"></div>
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-700 shadow-2xl bg-gray-200 dark:bg-gray-700">
                 {/* Placeholder for headshot - user will replace */}
                 <Image

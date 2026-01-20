@@ -46,7 +46,7 @@ export default function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-gray-700 dark:text-gray-300 hover:text-bitcoin-500 dark:hover:text-bitcoin-400 transition-colors"
               >
                 {item.label}
               </a>
@@ -54,7 +54,7 @@ export default function Header() {
             
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-bitcoin-50 dark:hover:bg-gray-700 hover:text-bitcoin-500 transition-colors"
               aria-label="Toggle theme"
             >
               {theme === "light" ? (

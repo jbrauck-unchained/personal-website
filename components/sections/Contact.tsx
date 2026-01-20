@@ -83,7 +83,7 @@ export default function Contact() {
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-lg text-blue-600 dark:text-blue-400">
+                  <div className="p-3 bg-bitcoin-100 dark:bg-bitcoin-900 rounded-lg text-bitcoin-500 dark:text-bitcoin-400">
                     <svg
                       className="w-6 h-6"
                       fill="none"
@@ -102,7 +102,7 @@ export default function Contact() {
                     <h4 className="font-semibold mb-1">Email</h4>
                     <a
                       href="mailto:jbrauck417@gmail.com"
-                      className="text-blue-600 dark:text-blue-400 hover:underline"
+                      className="text-bitcoin-500 dark:text-bitcoin-400 hover:underline"
                     >
                       jbrauck417@gmail.com
                     </a>
@@ -110,7 +110,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-lg text-blue-600 dark:text-blue-400">
+                  <div className="p-3 bg-bitcoin-100 dark:bg-bitcoin-900 rounded-lg text-bitcoin-500 dark:text-bitcoin-400">
                     <svg
                       className="w-6 h-6"
                       fill="none"
@@ -140,7 +140,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-lg text-blue-600 dark:text-blue-400">
+                  <div className="p-3 bg-bitcoin-100 dark:bg-bitcoin-900 rounded-lg text-bitcoin-500 dark:text-bitcoin-400">
                     <svg
                       className="w-6 h-6"
                       fill="currentColor"
@@ -159,7 +159,7 @@ export default function Contact() {
                       href="https://github.com/jbrauck-unchained"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 dark:text-blue-400 hover:underline"
+                      className="text-bitcoin-500 dark:text-bitcoin-400 hover:underline"
                     >
                       @jbrauck-unchained
                     </a>
@@ -167,7 +167,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-lg text-blue-600 dark:text-blue-400">
+                  <div className="p-3 bg-bitcoin-100 dark:bg-bitcoin-900 rounded-lg text-bitcoin-500 dark:text-bitcoin-400">
                     <svg
                       className="w-6 h-6"
                       fill="currentColor"
@@ -182,7 +182,7 @@ export default function Contact() {
                       href="https://linkedin.com/in/joseph-brauckmann"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 dark:text-blue-400 hover:underline"
+                      className="text-bitcoin-500 dark:text-bitcoin-400 hover:underline"
                     >
                       joseph-brauckmann
                     </a>
@@ -212,7 +212,7 @@ export default function Contact() {
                     value={formState.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-bitcoin-500 focus:border-transparent outline-none transition-all"
                     placeholder="Your name"
                   />
                 </div>
@@ -231,7 +231,7 @@ export default function Contact() {
                     value={formState.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-bitcoin-500 focus:border-transparent outline-none transition-all"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -249,7 +249,7 @@ export default function Contact() {
                     value={formState.inquiryType}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-bitcoin-500 focus:border-transparent outline-none transition-all"
                   >
                     <option value="">Select an option</option>
                     <option value="job">Job Opportunity</option>
@@ -273,7 +273,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all resize-none"
+                    className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-bitcoin-500 focus:border-transparent outline-none transition-all resize-none"
                     placeholder="Your message..."
                   />
                 </div>
@@ -281,7 +281,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full px-8 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white rounded-lg font-medium transition-colors flex items-center justify-center"
+                  className="w-full px-8 py-3 bg-bitcoin-500 hover:bg-bitcoin-600 disabled:bg-bitcoin-400 text-white rounded-lg font-medium transition-colors flex items-center justify-center"
                 >
                   {status === "loading" ? (
                     <>
