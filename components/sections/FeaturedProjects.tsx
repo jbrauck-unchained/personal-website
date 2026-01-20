@@ -43,43 +43,40 @@ export default function FeaturedProjects() {
     <section id="projects" className="section-padding">
       <div className="divider" />
 
-      <div className="w-full max-w-7xl mx-auto">
-        <h2 className="mb-4">
+      <div className="container-width">
+        <h2 className="mb-3">
           Projects
         </h2>
         <p className="text-muted mb-12">
           Bitcoin technology, developer tools, and educational applications
         </p>
 
-        <div className="space-y-12">
+        <div className="space-y-8">
           {projects.map((project) => (
-            <article key={project.title} className="border-accent pb-8">
-              <h3 className="mb-3">{project.title}</h3>
+            <article key={project.title} className="card">
+              <h3 className="mb-4">{project.title}</h3>
 
-              <p className="mb-4">
+              <p className="mb-6">
                 {project.description}
               </p>
 
-              <div className="mb-4">
-                <p className="text-[length:var(--text-sm)] text-muted uppercase tracking-wider mb-2">
+              <div className="mb-6">
+                <p className="text-[length:var(--text-sm)] font-medium text-muted uppercase tracking-wider mb-3">
                   Key Features
                 </p>
-                <ul className="space-y-1 text-[length:var(--text-sm)]">
+                <ul className="space-y-2 text-[length:var(--text-sm)]">
                   {project.highlights.map((highlight) => (
                     <li key={highlight} className="flex items-start">
-                      <span className="text-[var(--accent)] mr-2">→</span>
+                      <span className="text-[var(--accent)] mr-2 mt-1">•</span>
                       <span>{highlight}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-6">
                 {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-[length:var(--text-xs)] px-2 py-1 border border-[var(--border)] text-muted"
-                  >
+                  <span key={tech} className="tag">
                     {tech}
                   </span>
                 ))}
@@ -90,7 +87,7 @@ export default function FeaturedProjects() {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-[length:var(--text-sm)] font-medium hover:text-[var(--accent)] transition-colors"
+                  className="text-[length:var(--text-sm)] font-medium link"
                 >
                   GitHub →
                 </a>
@@ -99,7 +96,7 @@ export default function FeaturedProjects() {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-[length:var(--text-sm)] font-medium hover:text-[var(--accent)] transition-colors"
+                    className="text-[length:var(--text-sm)] font-medium link"
                   >
                     Live Demo →
                   </a>

@@ -48,8 +48,8 @@ export default function Projects() {
     <section className="section-padding">
       <div className="divider" />
 
-      <div className="w-full max-w-7xl mx-auto">
-        <h2 className="mb-4">
+      <div className="container-width">
+        <h2 className="mb-3">
           More Work
         </h2>
         <p className="text-muted mb-12">
@@ -58,19 +58,19 @@ export default function Projects() {
 
         <div className="grid md:grid-cols-2 gap-6">
           {otherProjects.map((project) => (
-            <article key={project.title} className="border-accent">
-              <div className="flex items-start justify-between mb-2">
+            <article key={project.title} className="card card-sm">
+              <div className="flex items-start justify-between gap-4 mb-3">
                 <h3 className="text-[length:var(--text-lg)]">{project.title}</h3>
-                <span className="text-[length:var(--text-xs)] px-2 py-1 border border-[var(--border)] text-muted whitespace-nowrap ml-2">
+                <span className="badge flex-shrink-0">
                   {project.category}
                 </span>
               </div>
 
-              <p className="mb-3 text-[length:var(--text-sm)]">
+              <p className="mb-4 text-[length:var(--text-sm)]">
                 {project.description}
               </p>
 
-              <div className="flex flex-wrap gap-2 mb-3">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {project.tech.map((tech) => (
                   <span
                     key={tech}
@@ -85,7 +85,7 @@ export default function Projects() {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-[length:var(--text-sm)] font-medium hover:text-[var(--accent)] transition-colors"
+                className="text-[length:var(--text-sm)] font-medium link"
               >
                 View Repository →
               </a>
@@ -98,7 +98,7 @@ export default function Projects() {
             href="https://github.com/jbrauck-unchained?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 border-2 border-[var(--border)] font-medium transition-all hover:-translate-y-0.5 hover:shadow-[4px_4px_0_var(--foreground)]"
+            className="btn-outline"
           >
             View All Repositories on GitHub →
           </a>

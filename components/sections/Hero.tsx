@@ -5,31 +5,27 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section className="min-h-screen flex items-center section-padding">
-      <div className="w-full max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-[2fr,1fr] gap-12 items-start">
+      <div className="container-width">
+        <div className="grid md:grid-cols-[1fr,300px] gap-12 items-center">
           {/* Content */}
           <div>
-            <h1 className="mb-4">
-              JOE BRAUCKMANN
+            <h1 className="mb-6">
+              Joe Brauckmann
             </h1>
 
-            <p className="text-[length:var(--text-lg)] font-normal mb-8 max-w-none">
+            <p className="text-[length:var(--text-lg)] text-muted mb-8 max-w-none">
               Product Manager | Developer | Bitcoin
             </p>
 
-            <p className="mb-12">
+            <p className="mb-10 max-w-2xl">
               Building the future of financial sovereignty at Unchained.
               Technical PM who codes, ships mobile apps, and automates
               everything.
             </p>
 
             {/* CTA */}
-            <a
-              href="#projects"
-              className="inline-block px-8 py-3 bg-[var(--accent)] text-[var(--bg-light)] font-medium transition-all hover:-translate-y-0.5 hover:shadow-[4px_4px_0_var(--foreground)] focus:shadow-[4px_4px_0_var(--foreground)]"
-              style={{ transitionDuration: 'var(--transition-fast)' }}
-            >
-              → View Work
+            <a href="#projects" className="btn">
+              View Work →
             </a>
 
             {/* Social Links */}
@@ -87,18 +83,20 @@ export default function Hero() {
           </div>
 
           {/* Image */}
-          <div className="relative w-full aspect-square max-w-sm md:max-w-none">
-            <div className="relative w-full h-full border-[8px] border-[var(--border)] overflow-hidden bg-[var(--muted)]">
-              <Image
-                src="/images/jbheadshot.jpg"
-                alt="Joe Brauckmann"
-                fill
-                className="object-cover"
-                priority
-                onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                }}
-              />
+          <div className="hidden md:block">
+            <div className="relative w-full aspect-square max-w-[300px] mx-auto">
+              <div className="relative w-full h-full border border-[var(--border)] rounded-lg overflow-hidden bg-[var(--muted)]">
+                <Image
+                  src="/images/jbheadshot.jpg"
+                  alt="Joe Brauckmann"
+                  fill
+                  className="object-cover"
+                  priority
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>

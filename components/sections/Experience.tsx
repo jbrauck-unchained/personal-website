@@ -58,24 +58,24 @@ export default function Experience() {
     <section id="experience" className="section-padding">
       <div className="divider" />
 
-      <div className="w-full max-w-7xl mx-auto">
-        <h2 className="mb-4">
+      <div className="container-width">
+        <h2 className="mb-3">
           Experience
         </h2>
         <p className="text-muted mb-12">
           From QA Support Engineer to Product Manager—nearly 4 years of growth leveraging technical depth to ship impactful products
         </p>
 
-        <div className="space-y-12">
+        <div className="space-y-8">
           {experiences.map((exp, index) => (
-            <article key={index} className="border-accent">
-              <div className="mb-2">
-                <span className="text-[length:var(--text-xs)] px-2 py-1 border border-[var(--border)] text-muted uppercase tracking-wider">
+            <article key={index} className="card">
+              <div className="mb-4">
+                <span className="badge">
                   {exp.period}
                 </span>
               </div>
 
-              <h3 className="mb-1">
+              <h3 className="mb-2">
                 {exp.title}
               </h3>
 
@@ -83,14 +83,14 @@ export default function Experience() {
                 {exp.company}
               </p>
 
-              <p className="text-[length:var(--text-sm)] text-muted mb-4">
+              <p className="text-[length:var(--text-sm)] text-muted mb-6">
                 {exp.location}
               </p>
 
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {exp.achievements.map((achievement, achIndex) => (
                   <li key={achIndex} className="flex items-start">
-                    <span className="text-[var(--accent)] mr-2 flex-shrink-0">→</span>
+                    <span className="text-[var(--accent)] mr-3 mt-1 flex-shrink-0">•</span>
                     <span>{achievement}</span>
                   </li>
                 ))}
@@ -100,16 +100,16 @@ export default function Experience() {
         </div>
 
         {/* Key Metrics */}
-        <div className="mt-16 grid md:grid-cols-3 gap-6">
-          <div className="border-[8px] border-[var(--border)] p-6 text-center">
+        <div className="mt-12 grid md:grid-cols-3 gap-6">
+          <div className="card card-sm text-center">
             <div className="text-[length:var(--text-2xl)] font-bold mb-2">4 Roles</div>
             <div className="text-[length:var(--text-sm)] text-muted">QA Support → QA → APM → PM in Under 4 Years</div>
           </div>
-          <div className="border-[8px] border-[var(--border)] p-6 text-center">
+          <div className="card card-sm text-center">
             <div className="text-[length:var(--text-2xl)] font-bold mb-2">50 → 1000s</div>
             <div className="text-[length:var(--text-sm)] text-muted">Daily Signature Capacity Scaled</div>
           </div>
-          <div className="border-[8px] border-[var(--border)] p-6 text-center">
+          <div className="card card-sm text-center">
             <div className="text-[length:var(--text-2xl)] font-bold mb-2">40 hrs/week</div>
             <div className="text-[length:var(--text-sm)] text-muted">Operational Capacity Saved</div>
           </div>

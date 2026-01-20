@@ -27,15 +27,15 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all ${
         scrolled
-          ? "bg-[var(--background)] border-b-[2px] border-[var(--border)]"
+          ? "bg-[var(--background)] border-b border-[var(--border)]"
           : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto px-6 py-4 max-w-7xl">
+      <nav className="container-width py-4">
         <div className="flex items-center justify-between">
           <a
             href="#"
-            className="text-[length:var(--text-xl)] font-bold hover:text-[var(--accent)] transition-colors"
+            className="text-[length:var(--text-lg)] font-bold hover:text-[var(--accent)] transition-colors"
           >
             JB
           </a>
@@ -45,7 +45,7 @@ export default function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-[length:var(--text-sm)] font-medium hover:text-[var(--accent)] transition-colors uppercase tracking-wider"
+                className="text-[length:var(--text-sm)] font-medium hover:text-[var(--accent)] transition-colors"
               >
                 {item.label}
               </a>
@@ -53,7 +53,7 @@ export default function Header() {
 
             <button
               onClick={toggleTheme}
-              className="p-2 border-2 border-[var(--border)] hover:border-[var(--accent)] transition-colors"
+              className="p-2 hover:text-[var(--accent)] transition-colors"
               aria-label="Toggle theme"
             >
               {theme === "light" ? (
@@ -72,7 +72,7 @@ export default function Header() {
           <div className="md:hidden">
             <button
               onClick={toggleTheme}
-              className="p-2 border-2 border-[var(--border)]"
+              className="p-2 hover:text-[var(--accent)] transition-colors"
               aria-label="Toggle theme"
             >
               {theme === "light" ? (

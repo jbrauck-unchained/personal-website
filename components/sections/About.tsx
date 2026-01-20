@@ -11,7 +11,7 @@ export default function About() {
     <section id="about" className="section-padding">
       <div className="divider" />
 
-      <div className="w-full max-w-7xl mx-auto">
+      <div className="container-width">
         <h2 className="mb-12">
           About
         </h2>
@@ -77,14 +77,14 @@ export default function About() {
           <h3 className="mb-8">Skills & Technologies</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {skills.map((skillGroup) => (
-              <div key={skillGroup.category} className="border-accent">
-                <h4 className="font-bold mb-3 text-[length:var(--text-base)]">
+              <div key={skillGroup.category} className="card card-sm">
+                <h4 className="font-bold mb-4 text-[length:var(--text-base)]">
                   {skillGroup.category}
                 </h4>
                 <ul className="space-y-2 text-[length:var(--text-sm)]">
                   {skillGroup.items.map((skill) => (
                     <li key={skill} className="flex items-start">
-                      <span className="text-[var(--accent)] mr-2 flex-shrink-0">→</span>
+                      <span className="text-[var(--accent)] mr-2 mt-1">•</span>
                       <span>{skill}</span>
                     </li>
                   ))}
