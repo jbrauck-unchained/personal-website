@@ -37,7 +37,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
             >
-              Building the future of financial sovereignty at Unchained.
+              Building the future of bitcoin financial services at Unchained.
               Technical PM who codes, ships mobile apps, and automates
               everything.
             </motion.p>
