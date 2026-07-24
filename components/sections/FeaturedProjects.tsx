@@ -4,13 +4,13 @@ const chapters = [
     period: "May 2026 — Now",
     title: "The client journey",
     role: "Senior Product Manager",
-    body: "Lead product work across iOS, Android, and web on the path from a first visit through becoming an active client.",
+    body: "Lead product work across iOS, Android, and web, including onboarding, identity, payments, referrals, and trust communications in client emails and financial statements.",
     scope: [
       "Onboarding",
       "Identity",
       "Payments",
       "Referrals",
-      "Transactional email",
+      "Trust communications",
     ],
   },
   {

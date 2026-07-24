@@ -38,7 +38,7 @@ export default function Hero() {
           <div className="hero-meta">
             <span>
               <LocationIcon />
-              Philadelphia, PA
+              Lancaster, PA
             </span>
             <span>
               <CalendarIcon />

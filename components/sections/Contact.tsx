@@ -34,7 +34,7 @@ export default function Contact() {
               </a>
             ))}
           </div>
-          <p className="contact-location">Philadelphia, PA</p>
+          <p className="contact-location">Lancaster, PA</p>
         </div>
       </div>
     </section>
