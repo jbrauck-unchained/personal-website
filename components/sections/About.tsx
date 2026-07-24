@@ -1,186 +1,68 @@
-"use client";
+const principles = [
+  {
+    title: "Product delivery",
+    body: "I map the full client flow, write requirements, work through tradeoffs, test builds, and stay involved through release.",
+  },
+  {
+    title: "Agentic triage",
+    body: "I built Codex agents that scan and triage every incoming bug. When a fix is high confidence, the agent puts up a code change and tags the relevant engineer to review it. Another agent evaluates every feature request.",
+  },
+  {
+    title: "Product context",
+    body: "I built an operating system for myself and my product team that connects meeting recordings, Slack, Google Drive, historical product knowledge, and the current codebase. I use that context when I write PRDs.",
+  },
+];
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+const platforms = [
+  "iOS",
+  "Android",
+  "Web",
+  "Codex",
+  "Slack",
+  "Google Drive",
+  "Swift",
+  "Kotlin",
+];
 
 export default function About() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const skills = [
-    {
-      category: "Product Management",
-      items: [
-        "iOS & Android Apps",
-        "Agile",
-        "Figma",
-        "Product Strategy",
-        "Cross-functional Leadership",
-      ],
-    },
-    {
-      category: "Development",
-      items: [
-        "Python",
-        "JavaScript/TypeScript",
-        "Kotlin",
-        "Swift",
-        "React/Next.js",
-      ],
-    },
-    {
-      category: "Bitcoin",
-      items: [
-        "Bitcoin protocol",
-        "Nostr",
-        "Multisig security",
-        "Hardware wallets",
-        "Enterprise key management",
-      ],
-    },
-    {
-      category: "Modern Mobile",
-      items: [
-        "KMP (Kotlin Multiplatform)",
-        "Compose Multiplatform",
-        "Native iOS/Android",
-        "Shared infrastructure",
-        "Passkeys",
-      ],
-    },
-    {
-      category: "AI & Automation",
-      items: [
-        "Slack bots",
-        "LLM integration",
-        "Process automation",
-        "CLI tools",
-        "Claude Code, Cursor",
-      ],
-    },
-  ];
-
   return (
-    <section
-      id="about"
-      className="py-20 px-6 bg-white dark:bg-gray-800"
-      ref={ref}
-    >
-      <div className="container mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
-            About Me
-          </h2>
+    <section id="approach" className="section approach" aria-labelledby="approach-title">
+      <div className="site-shell">
+        <p className="section-kicker">02 / APPROACH</p>
+        <h2 id="approach-title" className="section-title">
+          How I work
+        </h2>
+        <p className="section-intro">
+          My work usually involves clients, design, engineering, operations,
+          compliance, and marketing. AI is part of how I handle that scope day
+          to day.
+        </p>
 
-          <div className="grid md:grid-cols-2 gap-12 mb-12">
-            <div>
-              <h3 className="text-2xl font-bold mb-4 text-bitcoin-500 dark:text-bitcoin-400">
-                A technical product manager
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                I'm a Product Manager at Unchained with a unique background that
-                combines deep technical expertise with product leadership. My
-                journey from QA Engineer to PM has given me a rare perspective:
-                I understand both the code and the customer.
-              </p>
-              <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                Currently, I lead product development for Unchained's native iOS
-                and Android applications, built with Swift and Kotlin
-                respectively. My team has championed the adoption of Kotlin
-                Multiplatform (KMP) and are actively working on integrating
-                Compose Multiplatform to create shared infrastructure and
-                components, dramatically improving development velocity and code
-                quality.
-              </p>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                Beyond mobile, I drive AI initiatives across the
-                organization—from Slack bots that auto-generate release notes to
-                engineering-friendly CLI tools for task management. I believe in
-                building tools that make developers' lives easier and shipping
-                products that empower users to take control of their financial
-                future.
-              </p>
-            </div>
+        <div className="principles-grid">
+          {principles.map((principle, index) => (
+            <article className="principle" key={principle.title}>
+              <span className="principle-index">0{index + 1}</span>
+              <h3>{principle.title}</h3>
+              <p>{principle.body}</p>
+              <div className="route-segment" aria-hidden="true" />
+            </article>
+          ))}
+        </div>
 
-            <div>
-              <h3 className="text-2xl font-bold mb-4 text-bitcoin-500 dark:text-bitcoin-400">
-                Bitcoin obsessed & builder
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                My work in bitcoin and self-custody technology isn't just
-                professional—it's personal. I'm passionate about building tools
-                that give people true ownership of their wealth through
-                collaborative custody and multisig security.
-              </p>
-              <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                At Unchained, I've worked extensively on our enterprise key
-                security and "Signing Stack"—a critical infrastructure project
-                that expanded our daily signature capacity from ~50 to
-                thousands. This work directly enables clients to engage in
-                collaborative custody at scale while maintaining the highest
-                security standards.
-              </p>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                Outside of work, I contribute to the bitcoin community through
-                projects like BitLancaster (Lancaster's Bitcoin/BitDevs meetup),
-                build educational tools like a browser-based bitcoin miner
-                simulation, work on Caravan stateless multisig coordinator, and
-                experiment with Nostr protocol integrations. I'm a freedom
-                maximalist who believes bitcoin is essential infrastructure for
-                human liberty.
-              </p>
-            </div>
+        <div className="platform-block">
+          <div className="platform-rail" aria-label="Platform fluency">
+            <div className="platform-label">Working stack</div>
+            {platforms.map((platform) => (
+              <div className="platform-item" key={platform}>
+                {platform}
+              </div>
+            ))}
           </div>
-
-          <div className="mt-16">
-            <h3 className="text-2xl font-bold mb-8 text-center">
-              Skills & Technologies
-            </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {skills.map((skillGroup, index) => (
-                <motion.div
-                  key={skillGroup.category}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={
-                    isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                  }
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg"
-                >
-                  <h4 className="font-bold text-lg mb-3 text-bitcoin-500 dark:text-bitcoin-400">
-                    {skillGroup.category}
-                  </h4>
-                  <ul className="space-y-2">
-                    {skillGroup.items.map((skill) => (
-                      <li
-                        key={skill}
-                        className="text-gray-700 dark:text-gray-300 flex items-center"
-                      >
-                        <svg
-                          className="w-4 h-4 mr-2 text-bitcoin-500 dark:text-bitcoin-400"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        {skill}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+          <p className="platform-note">
+            I automate repeatable work so I can cover more ground without
+            giving up context or review.
+          </p>
+        </div>
       </div>
     </section>
   );

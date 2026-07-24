@@ -1,29 +1,38 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
-  title: "Joe Brauckmann | Product Manager & Developer",
-  description: "Product Manager at Unchained specializing in mobile apps, Bitcoin technology, and AI automation. Building the future of financial sovereignty.",
-  keywords: ["Product Manager", "iOS", "Android", "Bitcoin", "Unchained", "Software Developer", "KMP", "Compose Multiplatform"],
+  title: "Joe Brauckmann | Senior Product Manager",
+  description:
+    "Joe Brauckmann is a Senior Product Manager at Unchained. Work across quality, release systems, mobile apps, and the client journey.",
+  keywords: [
+    "Senior Product Manager",
+    "Product Strategy",
+    "Client Journey",
+    "iOS",
+    "Android",
+    "Fintech",
+    "Bitcoin",
+    "Unchained",
+  ],
   authors: [{ name: "Joe Brauckmann" }],
   openGraph: {
-    title: "Joe Brauckmann | Product Manager & Developer",
-    description: "Product Manager at Unchained specializing in mobile apps, Bitcoin technology, and AI automation.",
+    title: "Joe Brauckmann | Senior Product Manager",
+    description:
+      "Work across quality, release systems, mobile apps, and the client journey.",
     url: "https://brauckmann.xyz",
-    siteName: "Joe Brauckmann Portfolio",
+    siteName: "Joe Brauckmann",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Joe Brauckmann | Product Manager & Developer",
-    description: "Product Manager at Unchained specializing in mobile apps, Bitcoin technology, and AI automation.",
+    title: "Joe Brauckmann | Senior Product Manager",
+    description:
+      "Work across quality, release systems, mobile apps, and the client journey.",
     creator: "@rnutstink",
   },
 };
@@ -39,23 +48,33 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              try {
-                const theme = localStorage.getItem('theme');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (theme === 'dark' || (!theme && prefersDark)) {
-                  document.documentElement.classList.add('dark');
+              (() => {
+                const root = document.documentElement;
+                try {
+                  const savedTheme = localStorage.getItem('theme');
+                  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+                    ? 'dark'
+                    : 'light';
+                  const theme = savedTheme === 'light' || savedTheme === 'dark'
+                    ? savedTheme
+                    : systemTheme;
+
+                  root.dataset.theme = theme;
+                  root.classList.toggle('dark', theme === 'dark');
+                  root.style.colorScheme = theme;
+                } catch {
+                  root.dataset.theme = 'light';
+                  root.style.colorScheme = 'light';
                 }
-              } catch (e) {}
+              })();
             `,
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body>
         <ThemeProvider>
           <Header />
-          <main className="min-h-screen">
-            {children}
-          </main>
+          <main>{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'export', // Static export for Cloudflare Pages
+  assetPrefix: process.env.LOCAL_FILE_PREVIEW === '1' ? '.' : undefined,
   images: {
     unoptimized: true, // Required for static export
     remotePatterns: [

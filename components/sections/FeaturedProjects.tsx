@@ -1,166 +1,92 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import Image from "next/image";
+const chapters = [
+  {
+    number: "01",
+    period: "Apr 2022 — Jun 2023",
+    title: "QA support",
+    role: "QA Support Engineer",
+    body: "I started in QA support, working through bugs, acceptance testing, and client-facing product issues.",
+    scope: ["QA support", "Acceptance testing", "Product bugs"],
+  },
+  {
+    number: "02",
+    period: "Jun 2023 — Jul 2024",
+    title: "Quality and releases",
+    role: "QA Engineer",
+    body: "I moved into QA engineering and worked on release management, test infrastructure, and Playwright.",
+    scope: ["Release management", "Test infrastructure", "Playwright"],
+  },
+  {
+    number: "03",
+    period: "Jul 2024 — May 2025",
+    title: "Signing Stack",
+    role: "Associate Product Manager",
+    body: "I led work on Signing Stack that took daily signature capacity from about 50 to thousands. After that, I moved to mobile.",
+    scope: ["Signing operations", "Internal tools", "Capacity"],
+  },
+  {
+    number: "04",
+    period: "Jun 2025 — Apr 2026",
+    title: "Native mobile",
+    role: "Product Manager",
+    body: "I led native iOS and Android product work. We launched Android, added vault spending on iOS, and built cross-platform release systems.",
+    scope: ["Android launch", "iOS vault spending", "Mobile releases"],
+  },
+  {
+    number: "05",
+    period: "May 2026 — Now",
+    title: "The client journey",
+    role: "Senior Product Manager",
+    body: "I now work across iOS, Android, and web on the path from a first visit through becoming an active client.",
+    scope: [
+      "Onboarding",
+      "Identity",
+      "Payments",
+      "Referrals",
+      "Transactional email",
+    ],
+  },
+];
 
 export default function FeaturedProjects() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const projects = [
-    {
-      title: "Bitcoin Miner",
-      description: "Interactive web application demonstrating SHA256 hashing and Bitcoin mining difficulty adjustment. Built as an educational tool to help people understand proof-of-work consensus at a fundamental level.",
-      tech: ["JavaScript", "Web Crypto API", "SHA256"],
-      github: "https://github.com/jbrauck-unchained/bitcoin-miner",
-      demo: "https://jbrauck-unchained.github.io/bitcoin-miner/",
-      image: "/images/projects/bitcoin-miner.png",
-      highlights: [
-        "Real-time SHA256 hashing visualization",
-        "Adjustable mining difficulty",
-        "Educational proof-of-work demonstration",
-        "Browser-based, no installation required",
-      ],
-    },
-    {
-      title: "Sportstr",
-      description: "Python-based RSS feed aggregator that automatically posts sports news headlines to Nostr relays. Features intelligent duplicate detection to prevent spam and supports multiple free US sports news platforms.",
-      tech: ["Python", "Nostr Protocol", "RSS", "Duplicate Detection"],
-      github: "https://github.com/jbrauck-unchained/sportstr",
-      image: "/images/projects/sportstr.png",
-      highlights: [
-        "Automated RSS-to-Nostr bridge",
-        "Multi-platform sports news aggregation",
-        "Smart duplicate detection algorithm",
-        "Decentralized social media integration",
-      ],
-    },
-    {
-      title: "Bitcoin Voice Price",
-      description: "Voice-activated Bitcoin price checker that integrates with Mempool running on Umbrel. A practical tool demonstrating IoT integration with Bitcoin infrastructure on local networks.",
-      tech: ["JavaScript", "Voice Recognition API", "Mempool Integration"],
-      github: "https://github.com/jbrauck-unchained/bitcoin-voice-price",
-      image: "/images/projects/bitcoin-voice-price.png",
-      highlights: [
-        "Voice-activated price queries",
-        "Local Mempool integration",
-        "Umbrel network compatibility",
-        "Hands-free Bitcoin price checking",
-      ],
-    },
-  ];
-
   return (
-    <section id="featured-projects" className="py-20 px-6 bg-white dark:bg-gray-800" ref={ref}>
-      <div className="container mx-auto max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-            Featured Projects
+    <section
+      id="chapters"
+      className="section"
+      aria-labelledby="chapters-title"
+    >
+      <div className="site-shell">
+        <div className="section-heading">
+          <p className="section-kicker">01 / CHAPTERS</p>
+          <h2 id="chapters-title" className="section-title">
+            My work so far
           </h2>
-          <p className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
-            Highlighted work showcasing Bitcoin technology, developer tools, and educational applications
+          <p className="section-intro">
+            Five roles at Unchained from 2022 to now.
           </p>
+        </div>
 
-          <div className="space-y-16">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className={`grid lg:grid-cols-2 gap-8 items-start ${
-                  index % 2 === 1 ? "lg:grid-flow-dense" : ""
-                }`}
-              >
-                {/* Project Info */}
-                <div className={index % 2 === 1 ? "lg:col-start-2" : ""}>
-                  <h3 className="text-3xl font-bold mb-3">{project.title}</h3>
-                  <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
+        <div className="chapter-rows">
+          {chapters.map((chapter) => (
+            <article className="chapter-row" key={chapter.number}>
+              <div className="chapter-meta">
+                <span className="chapter-index">{chapter.number}</span>
+                <time>{chapter.period}</time>
+              </div>
 
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-sm text-gray-500 dark:text-gray-400 mb-2">
-                      KEY FEATURES
-                    </h4>
-                    <ul className="space-y-2">
-                      {project.highlights.map((highlight, hIndex) => (
-                        <li key={hIndex} className="flex items-start text-gray-700 dark:text-gray-300">
-                          <svg className="w-5 h-5 mr-2 text-bitcoin-500 dark:text-bitcoin-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                          </svg>
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+              <div className="chapter-copy">
+                <h3>{chapter.title}</h3>
+                <p className="chapter-role">{chapter.role}</p>
+                <p className="chapter-body">{chapter.body}</p>
+              </div>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 bg-bitcoin-100 dark:bg-bitcoin-900 text-bitcoin-700 dark:text-bitcoin-300 rounded-full text-sm font-medium"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex gap-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
-                    >
-                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                      </svg>
-                      View on GitHub
-                    </a>
-                    {project.demo && (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-6 py-3 border-2 border-bitcoin-500 text-bitcoin-600 dark:text-bitcoin-400 rounded-lg font-medium hover:bg-bitcoin-50 dark:hover:bg-bitcoin-900/30 transition-colors"
-                      >
-                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                        Live Demo
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-                {/* Project Preview */}
-                <div className={index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}>
-                  <div className="bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden shadow-xl">
-                    <div className="relative w-full aspect-video bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800">
-                      <Image
-                        src={project.image}
-                        alt={`${project.title} screenshot`}
-                        fill
-                        className="object-cover"
-                        onError={(e) => {
-                          // If image fails to load, hide it and show placeholder
-                          e.currentTarget.style.display = 'none';
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+              <ul className="chapter-scope" aria-label="Work included">
+                {chapter.scope.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
